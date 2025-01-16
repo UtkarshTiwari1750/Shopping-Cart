@@ -1,29 +1,20 @@
 import {toast} from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { remove, add } from "../redux/Slices/CartSlice";
-// import { Rallybase} from "https://cdn.jsdelivr.net/gh/UtkarshTiwari1750/tracker3/tracker.js"
 const Product = ({post}) => {
   const {cart} = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const addToCart = () =>  {
     dispatch(add(post));
-    // RallybaseTracker.capture("Add to Cart", {...post});
     toast.success("Item added to Cart");
-    window.RT.capture("Remove to Cart", {...post});
-
+    window.RT.capture("Remove to Cart");
   }
 
   const removeFromCart = () => {
     dispatch(remove(post.id));
     toast.error("Item removed from Cart");
-    // RallybaseTracker.capture("Remove to Cart", {...post});
-  //   mixpanel.track("Played song",{
-  //     "genre": "hip-hop"  // with an event property "genre" set to "hip-hop"
-  //     }
-  // );
-    window.RT.capture("Remove to Cart", {...post});
-  
+    window.RT.capture("Remove to Cart");
   }
 
   return (
