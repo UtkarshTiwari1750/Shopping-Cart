@@ -7,6 +7,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const [phone, setPhone] = useState("");
+  const [countryCode, setCountryCode] = useState("+91");
   async function fetchProductData(){
     setLoading(true);
 
@@ -29,7 +30,7 @@ const Home = () => {
   }, []);
 
   const handleSubmit = () => {
-    window.RT.setPhoneNumber(phone);
+    window.RT.setPhoneNumber(countryCode, phone);
   }
 
   return (
@@ -39,7 +40,10 @@ const Home = () => {
         posts.length > 0 ?
 
         (<div className="flex flex-col justify-center">
-          <input className="bg-gray-200 p-2 rounded-md border border-black " placeholder="Enter phone Number" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+          <div className="flex justify-center items-center space-x-2">
+            <input className="bg-gray-200 p-2 rounded-md border border-black w-16" placeholder="Country Code..." value={countryCode} onChange={(e) => setCountryCode(e.target.value)}/>
+            <input className="bg-gray-200 p-2 rounded-md border border-black " placeholder="Enter phone Number" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+          </div>
           <button className="bg-blue-500 text-white p-2 rounded-md mt-2" onClick={handleSubmit}>Submit</button>
           <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-6xl p-2 mx-auto space-y-10 space-x-5 min-h-[10vh] mt-16">
             {
