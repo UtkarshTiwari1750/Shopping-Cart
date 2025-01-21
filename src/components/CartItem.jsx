@@ -9,6 +9,7 @@ const CartItem = ({item}) => {
   const removeFromCart = () => {
     dispatch(remove(item.id));
     toast.success("Item Removed");
+    window.RT.capture("Remove from Cart");
   }
 
   return (

@@ -25,6 +25,7 @@ const Home = () => {
 
   useEffect( () => {
     fetchProductData();
+    window.RT.capture("Visit Home Page");
   }, []);
 
   const handleSubmit = () => {

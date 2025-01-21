@@ -11,6 +11,10 @@ const Cart = () => {
     setTotalAmount(cart.reduce( (acc, curr) => acc + curr.price,0) )
   }, [cart])
 
+  useEffect( () => {
+    window.RT.capture("Visit Cart Page");
+  }, []);
+
   return (
     <div className="w-full max-w-[1000px] mx-auto pt-4 relative">
       {

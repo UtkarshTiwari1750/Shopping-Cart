@@ -8,13 +8,13 @@ const Product = ({post}) => {
   const addToCart = () =>  {
     dispatch(add(post));
     toast.success("Item added to Cart");
-    window.RT.capture("Remove to Cart");
+    window.RT.capture("Add to Cart");
   }
 
   const removeFromCart = () => {
     dispatch(remove(post.id));
     toast.error("Item removed from Cart");
-    window.RT.capture("Remove to Cart");
+    window.RT.capture("Remove from Cart");
   }
 
   return (
